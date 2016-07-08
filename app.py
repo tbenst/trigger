@@ -12,7 +12,8 @@ def voltages_file_generator(directory):
             if os.path.isfile(filepath):
                 yield filepath
 
-files = voltages_file_generator('/data')
+search_dir = '/cephfs'
+files = voltages_file_generator(search_dir)
 
 
 @app.route('/spyking/job')
@@ -23,7 +24,7 @@ def spyking_job():
         next_voltage_file = next(files)
     except StopIteration:
         try:
-            files = voltages_file_generator('/data')
+            files = voltages_file_generator(search_dir)
             next_voltage_file = next(files)
         except:
             return 'No new jobs.'

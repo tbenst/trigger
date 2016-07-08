@@ -1,3 +1,3 @@
 ```
-docker run -d -p 5000:5000 -v /cephfs:/data tbenst/trigger
+docker run -d -p 5000:5000 -v /cephfs:/cephfs tbenst/trigger
 ```
